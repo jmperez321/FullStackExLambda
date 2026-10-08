@@ -77,24 +77,33 @@ public class ExerciciL {
 
         // 7 - treu un llistat de persones DONA amb lambda i stream
         System.out.println("\n7 DONES");
-        llista1.stream().filter(persona -> persona.getGenere().equals(Persona.Genere.DONA));
+        llista1.stream()
+                .filter(persona -> persona.getGenere() == (Persona.Genere.DONA))
+                .forEach(System.out::println);
 
         // 8 - treu un llistat dels dos HOMES més joves (stream)
         System.out.println("\n8 HOMES + JOVES");
+        llistaPersones.stream()
+                .filter(persona -> persona.getGenere() == Persona.Genere.HOME)
+                .sorted(Comparator.comparingInt(Persona::getAge)) // De menor a mayor edad
+                .limit(2)
+                .forEach(System.out::println);
 
         // 9- Esborrar de la llistaPersones les persones entre 30 i 40 anys (lambda)
         System.out.println("\n9");
+        llistaPersones.removeIf(p -> p.getAge() >= 30 && p.getAge() <= 40);
+        llistaPersones.forEach(System.out::println);
 
         // 10 - treu un llistat de les persones que tinguin una 'a' al seu nom
         System.out.println("\n10 Amb una 'A'");
+        llistaPersones.stream();
+
 
         //11 - treu un llistat amb dos dies després de les dates de naixament de les persones
         System.out.println("\n11 - dates amb dos dies més");
 
-
         //12 - Rejovenir(modificar) dos anys a totes les persones
         System.out.println("\n12 - Rejovenir dos anys a totes les persones");
-        ;
 
         //13. A partir de la següent llista de noms d'alumnes crea una nova llista d'alumnes amb aquest alumnes nous
         // pots modificar la classe alumne si cal.
