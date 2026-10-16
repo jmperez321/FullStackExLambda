@@ -2,7 +2,6 @@ package mvc.view;
 
 import mvc.model.Reservation;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 import java.util.Scanner;
@@ -12,6 +11,7 @@ public class ConsoleView {
 
     public int mainMenu() {
         System.out.println("""
+                
                 --------------------------------
                 Selecciona la teva opció:
                 --------------------------------
@@ -24,7 +24,9 @@ public class ConsoleView {
     }
 
     public String askUserName() {
+        sc.nextLine();
         System.out.println("""
+                
                 --------------------------------
                 Introdueix el nom del USUARI:
                 --------------------------------
@@ -34,6 +36,7 @@ public class ConsoleView {
 
     public String askBookName() {
         System.out.println("""
+                
                 --------------------------------
                 Introdueix el nom del LLIBRE:
                 --------------------------------

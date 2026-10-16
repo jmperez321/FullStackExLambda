@@ -9,7 +9,7 @@ public class ReservationController {
     ReservationService reservationService;
     ConsoleView consoleView;
 
-    //TODO: Corregir fallo de Scanner tras leer la opción y crear tema validaciones (excepciones creo).
+    //TODO: crear tema validaciones (excepciones creo).
     public ReservationController(ReservationService reservationService, ConsoleView consoleView) {
         this.reservationService = reservationService;
         this.consoleView = consoleView;
@@ -20,18 +20,16 @@ public class ReservationController {
         while (encendido) {
             int op = consoleView.mainMenu();
             switch (op) {
-                case 1:
-                    consoleView.outPutBookingEnd(
-                            reservationService.reserve(
-                                    new User(consoleView.askUserName()), new Book(consoleView.askBookName())));
+                case 1: // Nueva reserva
+                    consoleView.outPutBookingEnd(reservationService.reserve(new User(consoleView.askUserName()), new Book(consoleView.askBookName())));
                     break;
-                case 2:
+                case 2: // Listar reservas
                     consoleView.showAll(reservationService.getAllReservations());
                     break;
-                case 0:
+                case 0: // Salir
                     encendido = false;
                     break;
-                default:
+                default: // Opción invalida
                     consoleView.invalidOption();
                     break;
             }
