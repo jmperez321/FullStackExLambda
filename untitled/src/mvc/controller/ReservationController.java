@@ -9,7 +9,6 @@ public class ReservationController {
     ReservationService reservationService;
     ConsoleView consoleView;
 
-    //TODO: crear tema validaciones (excepciones creo).
     public ReservationController(ReservationService reservationService, ConsoleView consoleView) {
         this.reservationService = reservationService;
         this.consoleView = consoleView;
